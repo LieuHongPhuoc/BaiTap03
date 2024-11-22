@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #4CAF50;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    vertical-align: top; /* Đảm bảo nội dung canh đều ở trên cùng của ô */
+}
+
+/* Thêm định dạng cho liên kết */
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Đặt kích thước tối đa cho ảnh bìa trong bảng */
+table img {
+    max-width: 100px;  /* Điều chỉnh kích thước này theo nhu cầu */
+    height: auto;      /* Đảm bảo tỷ lệ của hình ảnh không bị méo */
+    display: block;
+    margin: 0 auto;    /* Canh giữa ảnh trong ô */
+}
+
+/* Đảm bảo cột có kích thước phù hợp cho nội dung */
+table th, table td {
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle; /* Giúp căn giữa hình theo chiều dọc */
+}
+
+td img {
+    max-width: 60px; /* Tăng kích thước tối đa của hình */
+    height: auto; /* Giữ nguyên tỉ lệ của hình */
+    display: block; /* Đảm bảo hình được hiển thị như một khối */
+    margin: 0 auto; /* Căn giữa hình trong ô */
+}
+
+
+
+

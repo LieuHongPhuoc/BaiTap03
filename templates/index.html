@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý Sách</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Quản lý Sách</h1>
+    {% if session.get('admin_logged_in') %}
+        <a href="{{ url_for('logout') }}">Đăng xuất</a>
+    {% endif %}
+
+    <a href="{{ url_for('add_book') }}">Thêm Sách</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Tên Sách</th>
+            <th>Tác Giả</th>
+            <th>Giá</th>
+            <th>Năm Xuất Bản</th>
+            <th>Thể Loại</th>
+            <th>Tóm Tắt</th>
+            <th>Hình Bìa</th>
+            <th>Chức Năng</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.id }}</td>
+            <td>{{ book.ten_sach }}</td>
+            <td>{{ book.tac_gia }}</td>
+            <td>{{ book.gia }}</td>
+            <td>{{ book.nam_xb }}</td>
+            <td>{{ book.the_loai }}</td>
+            <td>{{ book.tom_tat }}</td>
+            <td>
+                {% if book.hinh_bia %}
+                    <img src="{{ url_for('static', filename=book.hinh_bia) }}" alt="Hình bìa" style="width:150px; height:auto;">
+                {% else %}
+                    Không có
+                {% endif %}
+                <form action="{{ url_for('toggle_status', id=book.id) }}" method="post" style="display: inline;">
+                    <button type="submit" class="btn {% if book.tinh_trang %}btn-success{% else %}btn-danger{% endif %}">
+                        {% if book.tinh_trang %}Còn hàng{% else %}Hết hàng{% endif %}
+                    </button>
+                </form>
+            </td>            
+            <td>
+                <a href="{{ url_for('update_book', id=book.id) }}">Sửa</a> | 
+                <a href="{{ url_for('delete_book', id=book.id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

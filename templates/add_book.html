@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm Sách</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Thêm Sách Mới</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="ten_sach">Tên sách:</label>
+        <input type="text" id="ten_sach" name="ten_sach" required><br>
+    
+        <label for="tac_gia">Tác giả:</label>
+        <input type="text" id="tac_gia" name="tac_gia" required><br>
+    
+        <label for="gia">Giá:</label>
+        <input type="number" id="gia" name="gia" required><br>
+    
+        <label for="nam_xb">Năm xuất bản:</label>
+        <input type="number" id="nam_xb" name="nam_xb" required><br>
+    
+        <label for="the_loai">Thể loại:</label>
+        <input type="text" id="the_loai" name="the_loai"><br>
+    
+        <label for="tom_tat">Tóm tắt:</label>
+        <textarea id="tom_tat" name="tom_tat"></textarea><br>
+    
+        <label for="hinh_bia">Hình Bìa:</label>
+        <input type="file" id="hinh_bia" name="hinh_bia"><br>
+    
+        <button type="submit">Thêm sách</button>
+    </form>
+    
+</body>
+</html>

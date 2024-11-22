@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng Nhập Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Đăng Nhập Admin</h1>
+    <form method="POST" action="{{ url_for('login') }}">
+        <label for="username">Tên đăng nhập:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="password">Mật khẩu:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <button type="submit">Đăng Nhập</button>
+    </form>
+    <p>Chưa có tài khoản? <a href="#">Đăng ký</a></p>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash {{ 'success' if 'Đăng nhập thành công!' in messages else 'danger' }}">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>

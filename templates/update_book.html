@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sửa Sách</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Sửa Thông Tin Sách</h1>
+    <form method="POST">
+        <label for="ten_sach">Tên Sách:</label>
+        <input type="text" id="ten_sach" name="ten_sach" value="{{ book.ten_sach }}" required><br>
+        
+        <label for="tac_gia">Tác Giả:</label>
+        <input type="text" id="tac_gia" name="tac_gia" value="{{ book.tac_gia }}" required><br>
+        
+        <label for="gia">Giá:</label>
+        <input type="text" id="gia" name="gia" value="{{ book.gia }}" required><br>
+        
+        <label for="nam_xb">Năm Xuất Bản:</label>
+        <input type="text" id="nam_xb" name="nam_xb" value="{{ book.nam_xb }}" required><br>
+
+        <label for="the_loai">Thể Loại:</label>
+        <input type="text" id="the_loai" name="the_loai" value="{{ book.the_loai }}"><br>
+        
+        <label for="tom_tat">Tóm Tắt:</label>
+        <textarea id="tom_tat" name="tom_tat">{{ book.tom_tat }}</textarea><br>
+
+        <label for="hinh_bia">Hình Bìa:</label>
+        <input type="text" id="hinh_bia" name="hinh_bia" value="{{ book.hinh_bia }}"><br>
+        
+        <button type="submit">Cập Nhật</button>
+    </form>
+</body>
+</html>
